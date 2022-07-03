@@ -614,7 +614,7 @@
 // // Если подразделение/department вернулся - в enterprise кладем ent
 // // Возвращаем: при условии что  в enterprise есть объект/true возвращаем сам enterprise, а если false - вернем текст...
 
-// // 3. Написать функцию, которая будет добавлять предприятие. В качестве аргумента принимает название предприятия
+// // 3.3 Написать функцию, которая будет добавлять предприятие. В качестве аргумента принимает название предприятия
 // // Пример:
 // // addEnterprise("Название нового предприятия")
 
@@ -644,3 +644,46 @@
 // addEnterprise('Testers')
 // console.log(enterprises);
 
+
+// 3.4 Написать функцию, которая будет добавлять отдел в предприятие. В качестве аргумента принимает id предприятия, в которое будет добавлен отдел и название отдела.(добавим еще количество сотрудников)
+// Пример:
+// addDepartment(1, "Название нового отдела")
+
+// Функция, которая принимает в себя id или name и возвращает предприятие.
+
+// const getEnterprise = function(val){
+//     let enterprise = enterprises.find(el => el.id === val || el.name === val)
+//     return enterprise ? enterprise : false;     
+// };
+
+// const addDepartment = function(entId, name, count = 0){
+//     const enterprise = getEnterprise(entId);
+//     if(enterprise) enterprise.addDepartments.push({
+//         id: getNewId(enterprises),
+//         name: name,
+//         employees_count: count,
+//     })
+// };
+// addDepartment(11, 'QA', 28);
+
+
+// 3.5 Написать функцию для редактирования названия предприятия. Принимает в качестве аргумента id предприятия и новое имя предприятия.
+// Пример:
+// editEnterprise(1, "Новое название предприятия")
+
+// const editEnterprise = function(val, name){
+//     const enterprise = getEnterprise(val);
+//     if(enterprise) enterprise.name = name;
+//     else throw new Error('No such Enterprise')
+// };
+// В конце добавляем кастомную ошибку, которая выводится в консоль
+
+// 3.6 Написать функцию для редактирования названия отдела. Принимает в качестве аргумента id отдела и новое имя отдела.
+// Пример:
+// editDepartment(7, "Новое название отдела")
+
+// const editDepartment = function(val, name){
+//     const department = getDepartment(val);
+//     if(department) department.name = name;
+//     else throw new Error('No such department')
+// };
