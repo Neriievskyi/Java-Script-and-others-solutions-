@@ -687,3 +687,152 @@
 //     if(department) department.name = name;
 //     else throw new Error('No such department')
 // };
+
+// 3.7 Написать функцию для удаления предприятия. В качестве аргумента принимает id предприятия.
+// Пример:
+// deleteEnterprise(1)
+
+// const deleteEnterprise = function(val){
+//     const index = enterprises.findIndex(el => el.id === val)
+//     enterprises.splice(index, 1)
+// }
+// deleteEnterprise(9);
+
+// 3.8 Написать функцию для удаления отдела. В качестве аргумента принимает id отдела. Удалить отдел можно только, если в нем нет сотрудников.
+// Пример:
+// deleteDepartment(3)
+
+// const deleteDepartment = function(val){
+//     enterprises.forEach(e => {
+//         let index = e.departments.findIndex(d => d.id === id);
+//         if(index !== -1){
+//             e.departments.splice(index, 1);
+//         }
+//     });
+// }
+
+// 3.9 Написать функцию для переноса сотрудников между отделами одного предприятия. В качестве аргумента принимает два значения: id отдела, из которого будут переноситься сотрудники и id отдела, в который будут переноситься сотрудники).
+// Пример:
+// moveEmployees(2, 3)
+
+// const moveEmployees = function(currentId, newId){
+//     const current = getDepartment(currentId);
+//     const newDept = getDepartment(newId);
+//     if(current && newDept && getEnterpriseByDepartment(currentId) === getEnterpriseByDepartment(newId)){
+//         newDept.employees_count += current.employees_count;
+//         current.employees_count = 0;
+//     } else throw new Error('Something went wrong')
+// }
+
+// moveEmployees(2, 3);
+
+
+// 4. Написать функцию: 
+// Функция строит древовидный список компании.
+// При ее вызове в консоль должен выветить список подразделений компании с указанием количества сотрудников и с соблюдение вложенности подразделений.
+
+// Пример:
+
+// Компания (10)
+// -- Отдел тестирования (7)
+// ---- Тестирование Web (5)
+// ---- Тестирование Mobile (0)
+// -- Отдел маркетинга (30)
+// -- Администрация (25)
+// ---- Бухгалтерия (10)
+// ---- Менеджмент (15)
+// ------ Подраздел менеджмента 1 (5)
+// ------ Подраздел менеджмента 2 (10)
+// ---- HR (1)
+
+// const company = [
+//     {
+//       id: 1,
+//       name: "Компания",
+//       parent: null,
+//       users_count: 10,
+//       children: [
+//         {
+//           id: 2,
+//           name: "Отдел тестирования",
+//           parent: 1,
+//           users_count: 7,
+//           children: [
+//             {
+//               id: 2,
+//               name: "Тестирование Web",
+//               parent: 2,
+//               users_count: 5,
+//             },
+//             {
+//               id: 3,
+//               name: "Тестирование Mobile",
+//               parent: 2,
+//               users_count: 0,
+//             },
+//           ]
+//         },
+//         {
+//           id: 4,
+//           name: "Отдел маркетинга",
+//           parent: 1,
+//           users_count: 30,
+//         },
+//         {
+//           id: 5,
+//           name: "Администрация",
+//           parent: 1,
+//           users_count: 25,
+//           children: [
+//             {
+//               id: 6,
+//               name: "Бухгалтерия",
+//               parent: 5,
+//               users_count: 10,
+//             },
+//             {
+//               id: 7,
+//               name: "Менеджмент",
+//               parent: 5,
+//               users_count: 15,
+//               children: [
+//                 {
+//                   id: 8,
+//                   name: "Подраздел менеджмента 1",
+//                   parent: 7,
+//                   users_count: 5,
+//                 },
+//                 {
+//                   id: 9,
+//                   name: "Подраздел менеджмента 2",
+//                   parent: 7,
+//                   users_count: 10,
+//                 }
+//               ]
+//             },
+//             {
+//               id: 10,
+//                  name: "HR",
+//                 parent: 5,
+//               users_count: 1,
+//             }
+//           ]
+//         },
+//       ]
+//     }
+//   ]
+
+// const checkArray = function(company, counter = ''){
+//     company.forEach(comp => {
+//         console.log(`${counter}${counter === "" ? "" : " "}${comp.name} (${comp.users_count})`)
+//         if(comp.children){
+//             counter += "--";
+//             checkArray(comp.children, counter);
+//             counter = counter.slice(0, -2)
+//         }
+//     });
+// }
+
+// checkArray(company);
+
+
